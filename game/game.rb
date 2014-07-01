@@ -17,7 +17,7 @@ class Game
 	end
 
 
-	def play()
+	def play
 		change_room(@start)
 
 		while true
@@ -30,7 +30,7 @@ class Game
 
 		case (room)
 		when 'mainHall'
-			@next_room = MainHall.new('Main Hall', 'intro text')
+			@next_room = MainHall.new('Main Hall', Utilities::get_intro_text(room))
 		when 'mineRoom'
 			@next_room = MineRoom.new('Mine Room', 'intro text')
 		when 'forrestRoom'

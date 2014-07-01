@@ -8,10 +8,14 @@ class CavernRoom < Room
 		puts "Which weapon will you use: [" + Utilities::list_weapons + "]"
 		w = Utilities::prompt
 
+		if w.length == 0
+			return no_weapons = true
+		end
+
 		if !Utilities::check_weapons(w)
 			puts "You don't have that weapon. Choose one you have."
 			choice = Utilities.prompt
-		elsif w == "hammer" || "sword"
+		elsif (w == "hammer" || "sword") && no_weapons == true
 			puts "You win! The Ogre succombed to your magic weapon!"
 			puts "The Ogre was guarding 2 doors."
 			puts "Do you choose the door on the right (r) or the door on the left (l)?"
